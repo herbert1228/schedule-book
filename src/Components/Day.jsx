@@ -1,11 +1,15 @@
 import React from 'react';
 import '../App.css';
+import classNames from 'classnames';
 
 class Day extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-
+    this.state = {
+      headerClass: {
+        'day-header': true,
+        'holiday': this.props.holiday
+      }
     };
   }
 
@@ -14,9 +18,10 @@ class Day extends React.Component {
 
   render() {
     const {day} = this.props;
+    const {headerClass} = this.state;
     return (
       <div className='day'>
-        {day}
+        <div className={classNames(headerClass)}>{day}</div>
       </div>
     );
   }

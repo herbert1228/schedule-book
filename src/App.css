@@ -4,6 +4,10 @@
    box-sizing: border-box; 
 }
 
+body {
+  font-family: 'Kalam';font-size: 22px;
+ }
+
 .App {
   display: flex; 
   flex-flow: column;
@@ -13,42 +17,85 @@
 .month {
   height: 900px;
   width: calc(900px * 1.414);
+  position: relative;
 
   display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+  flex-flow: row nowrap;
+  align-items: flex-start;
 
-  background-color: rgba(0, 255, 255, 0.336);
+  background-color: rgba(131, 131, 131, 0.336);
   margin-top: 20px;
   margin-bottom: 50px;
   border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.month-header {
-  height: 17%;
-  width: 100%;
-  padding-top: 1em;
+.month::after {
+  content: "";
+  background: url('./images/pochacco.png');
+  background-position: right bottom;
+  background-size: 20em 20em;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+.month-info-panel {
+  height: 100%;
+  width: 12.5%;
+  padding-top: 2em;
   background-color: rgba(240, 255, 255, 0.527);
   text-align: center;
 }
 
+.month-header {
+  font-size: larger;
+  font-weight: bolder;
+  height: 15%;
+}
+
 .day-grid-panel {
-  height: 80%;
-  width: 90%;
+  height: 100%;
+  width: 87.5%;
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
 }
 
+.day-of-week { 
+  height: 5%;
+  flex: 0 0 14.2857%; /* 1/7 */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding-top: 0.4em;
+}
+
+.day-of-week.sunday {
+  background-color: rgb(255, 255, 94);
+}
+
 .day {
-  height: 20%;
+  height: 15.8333%; /* (100-5) / 6 */
   flex: 0 0 14.2857%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: rgba(240, 255, 255, 0.8);
-  /* padding: 1em; */
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0.5em 0.7em 0.5em 0.7em;
+}
+
+.day-header {
+  text-align: end;
+}
+
+.day-header.holiday {
+  color: red;
 }
 
 .month-footer {
   height: 3%;
-  width: 100%;
+  width: 0%;
 }

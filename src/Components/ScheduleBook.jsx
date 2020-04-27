@@ -10,6 +10,16 @@ class ScheduleBook extends React.Component {
         {year: 2020, month: 4},
         {year: 2020, month: 5},
         {year: 2020, month: 6},
+        {year: 2020, month: 7},
+        {year: 2020, month: 8},
+        {year: 2020, month: 9},
+        {year: 2020, month: 10},
+        {year: 2020, month: 11},
+        {year: 2020, month: 12},
+        {year: 2021, month: 1},
+        {year: 2021, month: 2},
+        {year: 2021, month: 3},
+        {year: 2021, month: 4},
       ] 
     };
   }
@@ -18,11 +28,7 @@ class ScheduleBook extends React.Component {
   }
 
   getDaysInMonth = ({month, year}) => {
-    // Here January is 1 based
-    //Day 0 is the last day in the previous month
     return new Date(year, month, 0).getDate();
-    // Here January is 0 based
-    // return new Date(year, month+1, 0).getDate();
   };
 
   render() {
@@ -30,7 +36,7 @@ class ScheduleBook extends React.Component {
     return (
       <div>
         {months.map(month =>
-          <Month key={month.year + month.month} {...month} numOfDays={this.getDaysInMonth(month)} />
+          <Month key={''+ month.year + month.month} {...month} numOfDays={this.getDaysInMonth(month)} />
         )}
       </div>
     );
